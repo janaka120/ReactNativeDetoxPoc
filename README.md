@@ -1,4 +1,4 @@
-# NewDetoxReactNativeApp
+# React native detox poc
 
 Create a new React Native app: 'react_native_detox_poc'
 
@@ -232,29 +232,47 @@ error msg
 solution
 Run - `adb reverse tcp:8081 tcp:8081`
 
-2.
+2. Jest-circus runner not working with automatic jest config
 
-Setup React Native Detox test
-https://blog.codemagic.io/react-native-detox-tests-on-codemagic/
+Validation Error:
 
--- Issus I faced when the CI/CD configuration --
+    Module jest-circus/runner in the testRunner option was not found.
+          <rootDir> is: /home/janaka/MyStuff/projects/react-native/mdaq/detox/react_native_detox_poc/e2e
 
-1. React Native E2E w/ Detox error: “Failed to run application on the device”
+    Configuration Documentation:
+    https://jestjs.io/docs/configuration.html
+
+detox[17149] ERROR: [cli.js] Command failed: jest --config e2e/config.json --testNamePattern '^((?!:ios:).)\*$' --maxWorkers 1 e2e
+
+solution
+
+- npm install --save-dev jest-circus
+
+3. detox ERROR: [APP_UNREACHABLE] Failed to reach the app over the web socket connection.
+
+Solution - app has crashed prematurely because of compile error.
+
+4. React Native E2E w/ Detox error: “Failed to run application on the device”
    Problem: The app loads but tests fail to start in SDK >= 28
 
    - https://github.com/wix/Detox/blob/master/docs/Introduction.Android.md
    - Official Detox REact Native Demo app
      - https://github.com/wix/Detox/blob/master/examples/demo-react-native/android/app/src/main/AndroidManifest.xml
 
+References
+
+1. Setup React Native Detox test
+
+- https://blog.codemagic.io/react-native-detox-tests-on-codemagic/
+
 2. Support detox as a testing framework in AppCenter
 
 - github issue page
   - https://github.com/microsoft/appcenter/issues/262
-- - solution (AppCenter sample pre-build.sh)
-    - https://github.com/microsoft/appcenter/issues/262#issuecomment-706143051
-    - https://gist.github.com/badsyntax/4029600db276b0b51342626aebf9400a - I referred this one
+- solution (AppCenter sample pre-build.sh)
+  - https://github.com/microsoft/appcenter/issues/262#issuecomment-706143051
+  - https://gist.github.com/badsyntax/4029600db276b0b51342626aebf9400a - I referred this one
 
 3. Install and Create Emulators using AVDMANAGER and SDKMANAGER
 
 - https://gist.github.com/mrk-han/66ac1a724456cadf1c93f4218c6060ae
-# ReactNativeDetoxPoc
