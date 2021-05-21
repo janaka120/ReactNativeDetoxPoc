@@ -246,7 +246,7 @@ detox[17149] ERROR: [cli.js] Command failed: jest --config e2e/config.json --tes
 
 solution
 
-- npm install --save-dev jest-circus
+- `npm install --save-dev jest-circus`
 
 3. detox ERROR: [APP_UNREACHABLE] Failed to reach the app over the web socket connection.
 
