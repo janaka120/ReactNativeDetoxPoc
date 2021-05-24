@@ -14,10 +14,10 @@ Start app
 
 Setting up Detox ---
 
-Install Detox dependencies:
+Install Detox dependencies(MAC OS):
 
-- `sudo apt update`
-- `sudo apt install detox`
+- `brew tap wix/brew`
+- `brew install applesimutils`
 
 Install Detox CLI global:
 
